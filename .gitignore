@@ -1,0 +1,49 @@
+# ==============================================================================
+# 🧠 QUIZZES REPOSITORY - GLOBAL GITIGNORE
+# This root file recursively enforces ignore rules across all isolated sub-apps.
+# ==============================================================================
+
+# 📦 Dependencies (Blocks node_modules in every sub-app)
+node_modules/
+jspm_packages/
+web_modules/
+.pnpm-store/
+
+# 🏗️ Build & Production Outputs (Vite, CRA, Next.js, etc.)
+build/
+dist/
+out/
+.next/
+.vuepress/.temp/
+.cache/
+
+# 🔒 Local Environment / Secrets (Crucial for security)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.lock
+
+# 🪵 Debugging Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 💻 IDEs, Editors, & System Files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# 🧪 Testing Coverage
+coverage/
+.nyc_output/

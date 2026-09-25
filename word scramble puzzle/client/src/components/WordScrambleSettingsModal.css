@@ -1,0 +1,222 @@
+.ws-settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 30, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 24px;
+  animation: wsSettingsOverlayFadeIn 0.2s ease-out;
+}
+
+.ws-settings-overlay.closing {
+  animation: wsSettingsOverlayFadeOut 0.18s ease-in forwards;
+}
+
+@keyframes wsSettingsOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wsSettingsOverlayFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.ws-settings-modal {
+  width: 420px;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(15, 23, 30, 0.32);
+  padding: 22px 24px 24px;
+  animation: wsSettingsZoomIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ws-settings-modal.closing {
+  animation: wsSettingsZoomOut 0.18s ease-in forwards;
+}
+
+@keyframes wsSettingsZoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes wsSettingsZoomOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.88);
+    opacity: 0;
+  }
+}
+
+.ws-settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ws-settings-title {
+  margin: 0;
+  font-size: 18px;
+  color: #1f2933;
+}
+
+.ws-settings-close-btn {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #f2f5f7;
+  color: #52606d;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.ws-settings-close-btn:hover {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.ws-settings-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ws-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid #e4e9ef;
+  border-radius: 12px;
+  background: #fafcfb;
+}
+
+.ws-setting-label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1f2933;
+}
+
+.ws-setting-hint {
+  font-weight: 400;
+  font-size: 12px;
+  color: #7b8794;
+}
+
+.ws-setting-number {
+  width: 64px;
+  flex-shrink: 0;
+  padding: 8px 10px;
+  border: 1.5px solid #d9e0e6;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.ws-setting-number:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.ws-setting-toggle {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  accent-color: #22c55e;
+  cursor: pointer;
+}
+
+.ws-settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ws-settings-cancel-btn {
+  padding: 9px 18px;
+  border: 1.5px solid #d9e0e6;
+  border-radius: 999px;
+  background: transparent;
+  color: #52606d;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.ws-settings-cancel-btn:hover {
+  background: #f2f5f7;
+}
+
+.ws-settings-save-btn {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.ws-settings-save-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.ws-settings-coming-soon {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.ws-settings-coming-soon-label {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.ws-settings-coming-soon-hint {
+  margin: 0;
+  font-size: 13px;
+  color: #7b8794;
+}

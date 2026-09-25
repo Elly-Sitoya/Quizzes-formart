@@ -1,0 +1,52 @@
+.ws-trainer-portal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+  text-align: center;
+}
+
+.ws-trainer-header {
+  margin-bottom: 32px;
+}
+
+.ws-trainer-title {
+  font-size: 28px;
+  margin: 0 0 8px;
+  color: #1f2933;
+}
+
+.ws-trainer-subtitle {
+  color: #52606d;
+  margin: 0;
+  font-size: 15px;
+}
+
+.ws-open-quiz-modal-btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.ws-open-quiz-modal-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.ws-back-link {
+  display: block;
+  margin-top: 48px;
+  color: #52606d;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.ws-back-link:hover {
+  text-decoration: underline;
+}

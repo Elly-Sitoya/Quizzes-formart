@@ -1,0 +1,119 @@
+.ws-grid-frame {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Safety net only - the sizing in WordSearchGrid.jsx keeps this from
+     ever engaging at normal (non-zoomed) viewport scale. */
+  overflow: auto;
+}
+
+.ws-grid-frame-inner {
+  display: inline-flex;
+  border: 2px solid #22c55e;
+  border-radius: 16px;
+  background: #121a21;
+  padding: 12px;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.15) inset;
+}
+
+.ws-grid {
+  position: relative;
+  display: grid;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ws-grid.shake {
+  animation: wsShake 0.4s linear;
+}
+
+@keyframes wsShake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+.ws-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #dbe4ec;
+  border-radius: 6px;
+  transition: color 0.1s ease, text-shadow 0.1s ease;
+}
+
+.ws-cell.in-path {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.75);
+}
+
+.ws-found-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* correct word: a quick celebratory pop + glow as its trace appears */
+.ws-found-line {
+  animation: wsFoundPop 0.5s ease-out;
+}
+
+@keyframes wsFoundPop {
+  0% { opacity: 0; filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); }
+  45% { opacity: 0.95; filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.85)); }
+  100% { opacity: 0.6; filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); }
+}
+
+/* missed word reveal: dashed, fades in when the toggle is switched on */
+.ws-missed-line {
+  stroke: #f59e0b;
+  stroke-dasharray: 9 7;
+  opacity: 0;
+  fill: none;
+  animation: wsMissedFadeIn 0.35s ease forwards;
+}
+
+@keyframes wsMissedFadeIn {
+  to { opacity: 0.8; }
+}
+
+/* wrong word: a red flash that fades, paired with the grid shake above */
+.ws-wrong-line {
+  stroke: #ef4444;
+  opacity: 0;
+  animation: wsWrongPulse 0.42s ease-out;
+}
+
+@keyframes wsWrongPulse {
+  0% { opacity: 0; }
+  35% { opacity: 0.85; }
+  100% { opacity: 0.35; }
+}
+
+/* in-progress drag: one continuous capsule (outline + soft fill) that
+   stretches from the start letter to the current letter, instead of
+   lighting up individual cells. */
+.ws-selecting-outline {
+  stroke: #f8fafc;
+  opacity: 0.9;
+}
+
+.ws-selecting-fill {
+  stroke: #fbbf24;
+  opacity: 0.55;
+  animation: wsSelectPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes wsSelectPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
+}

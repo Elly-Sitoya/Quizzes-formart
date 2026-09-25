@@ -1,0 +1,46 @@
+.trainer-portal {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+  text-align: center;
+}
+
+.trainer-title {
+  font-size: 30px;
+  margin: 0 0 8px;
+  color: #1f2933;
+}
+
+.trainer-subtitle {
+  color: #52606d;
+  margin: 0 0 32px;
+}
+
+.open-quiz-modal-btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.open-quiz-modal-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.back-link {
+  display: block;
+  margin-top: 48px;
+  color: #52606d;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,326 @@
+/* ---------- overlay + modal shell ---------- */
+
+.ws-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 8, 6, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: wsOverlayFadeIn 0.22s ease-out;
+}
+
+.ws-overlay.closing {
+  animation: wsOverlayFadeOut 0.2s ease-in forwards;
+}
+
+@keyframes wsOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes wsOverlayFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.ws-modal {
+  width: 940px;
+  max-width: 100%;
+  height: 92vh;
+  max-height: 720px;
+  background: #141b22;
+  border: 1px solid #232e38;
+  border-radius: 22px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px 24px;
+  overflow: hidden;
+  animation: wsModalZoomIn 0.26s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ws-modal.closing {
+  animation: wsModalZoomOut 0.2s ease-in forwards;
+}
+
+@keyframes wsModalZoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes wsModalZoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.85); opacity: 0; }
+}
+
+/* ---------- header ---------- */
+
+.ws-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.ws-title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ws-close-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #202b34;
+  color: #9fb0bf;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.ws-close-btn:hover {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+}
+
+/* ---------- top bar: word list + counters ---------- */
+
+.ws-topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: #1a232b;
+  border: 1px solid #263038;
+  border-radius: 999px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.ws-badge {
+  flex-shrink: 0;
+  background: #22c55e;
+  color: #08130c;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.ws-word-list {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  justify-content: center;
+}
+
+.ws-word-chip {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: #cbd5e1;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 1px;
+  display: inline-block;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.ws-word-chip.found {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.ws-word-chip.missed {
+  color: #f59e0b;
+  border-color: #f59e0b;
+  text-decoration: line-through;
+  opacity: 0.95;
+}
+
+.ws-word-chip.pop {
+  animation: wsChipPop 0.4s ease;
+}
+
+@keyframes wsChipPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.22); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- board ---------- */
+
+.ws-board {
+  flex: 1;
+  min-height: 0;
+  border-radius: 18px;
+  background: #0d141a;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.ws-screen-complete {
+  text-align: center;
+  font-weight: 700;
+  color: #4ade80;
+  font-size: 17px;
+}
+
+/* ---------- footer: timer + tools, or finished bar ---------- */
+
+.ws-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  min-height: 62px;
+}
+
+.ws-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ws-timer {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 3px solid #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #4ade80;
+  font-variant-numeric: tabular-nums;
+  background: #182029;
+}
+
+.ws-tool-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: #182029;
+  font-size: 18px;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.ws-tool-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  width: 84%;
+  height: 3px;
+  background: #ef4444;
+  border-radius: 2px;
+  transform: translateY(-50%) rotate(-28deg);
+}
+
+/* ---------- finished bar ---------- */
+
+.ws-finished-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: wsFadeInUp 0.3s ease-out;
+}
+
+@keyframes wsFadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ws-finished-score {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ws-finished-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ws-reveal-btn {
+  padding: 10px 20px;
+  border: 1.5px solid #f59e0b;
+  border-radius: 999px;
+  background: transparent;
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.ws-reveal-btn:hover {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.ws-finish-btn {
+  padding: 10px 28px;
+  border: none;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #08130c;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.ws-finish-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 480px) {
+  .ws-overlay {
+    padding: 0;
+  }
+
+  .ws-modal {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .ws-topbar {
+    border-radius: 16px;
+  }
+
+  .ws-finished-bar {
+    justify-content: center;
+    text-align: center;
+  }
+}

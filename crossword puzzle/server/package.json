@@ -1,0 +1,14 @@
+{
+  "name": "crossword-quiz-server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/router.js",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

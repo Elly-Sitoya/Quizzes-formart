@@ -1,0 +1,135 @@
+.crossword-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-quiz-row {
+  display: flex;
+  gap: 10px;
+}
+
+.create-quiz-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #d9e0e6;
+  font-size: 14px;
+}
+
+.create-quiz-input:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.create-quiz-btn {
+  background-color: #22c55e;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.create-quiz-btn:hover:not(:disabled) {
+  background-color: #16a34a;
+}
+
+.create-quiz-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  color: #7b8794;
+  font-size: 14px;
+}
+
+.trainer-quiz-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trainer-quiz-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #edf0f3;
+  border-radius: 12px;
+  transition: border-color 0.15s ease;
+}
+
+.trainer-quiz-card:hover {
+  border-color: #d9e0e6;
+}
+
+.trainer-quiz-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2933;
+  cursor: pointer;
+}
+
+.trainer-quiz-title:hover {
+  color: #16a34a;
+}
+
+.rename-input {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1.5px solid #22c55e;
+}
+
+.trainer-quiz-meta {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #7b8794;
+}
+
+.trainer-quiz-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-quiz-btn {
+  background: #f2f5f7;
+  color: #16a34a;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.edit-quiz-btn:hover {
+  background: #e3f9ea;
+}
+
+.delete-quiz-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 999px;
+  transition: background-color 0.15s ease;
+}
+
+.delete-quiz-btn:hover {
+  background: #fef2f2;
+}

@@ -1,0 +1,137 @@
+.ws-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-quiz-row {
+  display: flex;
+  gap: 10px;
+}
+
+.create-quiz-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid #d9e0e6;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.create-quiz-input:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.create-quiz-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.create-quiz-btn:hover:not(:disabled) {
+  background: #16a34a;
+}
+
+.create-quiz-btn:disabled {
+  background: #b6c1cc;
+  cursor: not-allowed;
+}
+
+.trainer-quiz-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trainer-quiz-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px 16px;
+  border: 1px solid #e4e9ef;
+  border-radius: 12px;
+  background: #fafcfb;
+}
+
+.trainer-quiz-info {
+  min-width: 0;
+}
+
+.trainer-quiz-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  color: #1f2933;
+  cursor: pointer;
+}
+
+.trainer-quiz-title:hover {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.rename-input {
+  font-size: 16px;
+  padding: 4px 8px;
+  border: 1.5px solid #22c55e;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.trainer-quiz-meta {
+  margin: 0;
+  font-size: 13px;
+  color: #7b8794;
+}
+
+.trainer-quiz-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-quiz-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #22c55e;
+  color: #16a34a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.15s ease;
+}
+
+.edit-quiz-btn:hover {
+  background: #eafaf0;
+}
+
+.delete-quiz-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1.5px solid #e4e9ef;
+  background: transparent;
+  color: #b3261e;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.delete-quiz-btn:hover {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.empty-state {
+  color: #7b8794;
+  text-align: center;
+  padding: 20px 0;
+}

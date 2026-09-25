@@ -1,0 +1,144 @@
+.ws-editor {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.ws-editor-back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #52606d;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.ws-editor-back:hover {
+  text-decoration: underline;
+}
+
+.ws-editor-title {
+  margin: 0 0 24px;
+  font-size: 26px;
+  color: #1f2933;
+}
+
+.ws-editor-settings {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.ws-editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ws-editor-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ws-editor-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #52606d;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ws-editor-number-input {
+  width: 100px;
+  padding: 8px 10px;
+  border: 1.5px solid #d9e0e6;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.ws-editor-number-input:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.ws-add-word-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ws-add-word-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid #d9e0e6;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.ws-add-word-input:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.ws-add-word-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.ws-add-word-btn:hover:not(:disabled) {
+  background: #16a34a;
+}
+
+.ws-add-word-btn:disabled {
+  background: #b6c1cc;
+  cursor: not-allowed;
+}
+
+.ws-word-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ws-editor-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px 7px 14px;
+  border: 1.5px solid #22c55e;
+  border-radius: 999px;
+  background: #eafaf0;
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.ws-editor-chip-remove {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ws-editor-chip-remove:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.ws-empty-state {
+  color: #7b8794;
+}

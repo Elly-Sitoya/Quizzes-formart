@@ -1,0 +1,173 @@
+.settings-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 30, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 24px;
+  animation: settingsOverlayFadeIn 0.2s ease-out;
+}
+
+@keyframes settingsOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.settings-modal {
+  width: 420px;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(15, 23, 30, 0.35);
+  animation: settingsModalZoomIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+@keyframes settingsModalZoomIn {
+  from { transform: scale(0.88); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.settings-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid #edf0f3;
+}
+
+.settings-modal-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.settings-modal-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #f2f5f7;
+  color: #52606d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.settings-modal-close-btn:hover {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.settings-modal-body {
+  padding: 20px;
+}
+
+.settings-field-label {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.timer-option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timer-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #e3e8ed;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.timer-option:hover {
+  border-color: #86e6ad;
+}
+
+.timer-option.selected {
+  border-color: #22c55e;
+  background: #eafff2;
+}
+
+.timer-option input {
+  margin-top: 3px;
+  accent-color: #22c55e;
+}
+
+.timer-option-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timer-option-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.timer-option-hint {
+  font-size: 12px;
+  color: #7b8794;
+}
+
+.minutes-row {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.minutes-row input[type='number'] {
+  width: 64px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1.5px solid #d9e0e6;
+  font-size: 14px;
+  text-align: center;
+}
+
+.minutes-row input[type='number']:focus {
+  outline: none;
+  border-color: #22c55e;
+}
+
+.minutes-suffix {
+  font-size: 13px;
+  color: #7b8794;
+}
+
+.settings-coming-soon {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.settings-coming-soon-label {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.settings-coming-soon-hint {
+  margin: 0;
+  font-size: 13px;
+  color: #7b8794;
+}

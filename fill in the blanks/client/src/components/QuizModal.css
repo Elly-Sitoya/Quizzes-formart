@@ -1,0 +1,520 @@
+/* ---------- overlay + modal shell ---------- */
+
+.fitb-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 12, 9, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: fitbOverlayFadeIn 0.22s ease-out;
+}
+
+.fitb-overlay.closing {
+  animation: fitbOverlayFadeOut 0.2s ease-in forwards;
+}
+
+@keyframes fitbOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fitbOverlayFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fitb-modal {
+  width: 980px;
+  max-width: 100%;
+  max-height: 92vh;
+  background: #16211a;
+  border-radius: 22px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 26px 26px;
+  animation: fitbModalZoomIn 0.26s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fitb-modal.closing {
+  animation: fitbModalZoomOut 0.2s ease-in forwards;
+}
+
+@keyframes fitbModalZoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fitbModalZoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.85); opacity: 0; }
+}
+
+/* ---------- header ---------- */
+
+.fitb-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.fitb-title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: #f2f7f4;
+  font-size: 21px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fitb-timer {
+  flex-shrink: 0;
+  border: 2px solid #22c55e;
+  border-radius: 999px;
+  padding: 8px 22px;
+  color: #4ade80;
+  font-weight: 700;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+.fitb-close-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cfd8d4;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.fitb-close-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+/* ---------- body layout ---------- */
+
+.fitb-body {
+  display: flex;
+  gap: 20px;
+  height: 480px;
+  min-height: 0;
+}
+
+.fitb-main-section {
+  flex: 2.2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border: 2px solid #22c55e;
+  border-radius: 18px;
+  background: #f7faf8;
+  padding: 20px;
+  height: 100%;
+}
+
+.fitb-bank-section {
+  flex: 1;
+  min-width: 220px;
+  align-self: flex-start;
+  height: 70%;
+  border: 2px solid #22c55e;
+  border-radius: 18px;
+  background: #f7faf8;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #22c55e transparent;
+}
+
+.fitb-bank-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fitb-bank-section::-webkit-scrollbar-thumb {
+  background-color: #22c55e;
+  border-radius: 999px;
+}
+
+.fitb-bank-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- paragraph area (no border, box-shadow instead) ---------- */
+
+.fitb-paragraph-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(15, 34, 24, 0.16), inset 0 0 0 1px rgba(15, 34, 24, 0.03);
+  padding: 22px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: #22c55e transparent;
+}
+
+.fitb-paragraph-scroll::-webkit-scrollbar {
+  width: 9px;
+}
+
+.fitb-paragraph-scroll::-webkit-scrollbar-thumb {
+  background-color: #22c55e;
+  border-radius: 999px;
+}
+
+.fitb-paragraph-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fitb-paragraph {
+  margin: 0 0 18px;
+  font-size: 17px;
+  line-height: 2.4;
+  color: #1f2933;
+}
+
+.fitb-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- blanks ---------- */
+
+/* The blank is a still socket. It never bounces, scales, or otherwise
+   reacts when a word lands in it — only its border color/glow change for
+   hover, selection, and grading. Width is set inline from the JS. Padding
+   is kept tight so a placed word's own edges sit right up against this
+   border, not floating in a gap — that's what makes it read as merging
+   into the socket instead of sinking into a hole inside it. */
+.fitb-blank {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  min-height: 32px;
+  margin: 0 3px;
+  padding: 0 4px;
+  border: 2px solid #1f2933;
+  border-radius: 6px;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: visible;
+  transform: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Holds the word and fills the blank's full interior (stretch, not center),
+   so a landing word's box is the same footprint as the blank, not a smaller
+   shape floating inside it. Overflow stays visible so the tilted chip can
+   straighten without being clipped; the blank's own border does not move. */
+.fitb-blank-slot {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.fitb-blank:hover,
+.fitb-blank.drag-hover,
+.fitb-blank.selected {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
+}
+
+.fitb-blank.correct {
+  border-color: #22c55e;
+  background: #eafaf0;
+  cursor: default;
+}
+
+.fitb-blank.wrong {
+  border-color: #ef4444;
+  background: #fef2f2;
+  cursor: default;
+}
+
+/* Settled word inside a blank: plain text, chip chrome already gone. */
+.fitb-placed-word {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid transparent;
+  border-radius: 7px;
+  outline: none;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 1px 8px;
+  margin: 0;
+  color: inherit;
+  font-weight: 700;
+  font-size: inherit;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+
+/* Arrives already in the blank, tilted like the chip that was dropped,
+   then straightens while the chip background/outline fade away. */
+.fitb-placed-word.landing {
+  animation: fitbWordLand 0.5s ease-out both;
+}
+
+@keyframes fitbWordLand {
+  0% {
+    transform: rotate(-8deg);
+    background-color: #ffffff;
+    border-color: #111827;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+  }
+  100% {
+    transform: rotate(0deg);
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.fitb-placed-word.dragging-away {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.check-mark {
+  position: absolute;
+  left: 6px;
+  bottom: 2px;
+  color: #16a34a;
+  font-weight: 900;
+  font-size: 15px;
+  pointer-events: none;
+  animation: fitbCheckFade 0.9s ease forwards;
+}
+
+@keyframes fitbCheckFade {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(16px, -20px) scale(1.1); }
+}
+
+.x-mark {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.reveal-correct-label {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 700;
+  color: #16a34a;
+  background: #eafaf0;
+  border: 1px solid #22c55e;
+  border-radius: 5px;
+  padding: 1px 6px;
+  pointer-events: none;
+}
+
+/* ---------- answer tiles (bank + placed) ---------- */
+
+.fitb-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border: 1.5px solid #111827;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #1f2933;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  transition: border-color 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
+}
+
+.fitb-tile:hover {
+  border-color: #22c55e;
+}
+
+.fitb-tile.placed {
+  cursor: pointer;
+}
+
+.fitb-tile.used {
+  background: #e4e9ef;
+  color: #9aa5b1;
+  border-color: #ccd4db;
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* the word stays mounted (never removed from the page) while it's being
+   carried between blanks, so it keeps hold of the pointer the whole time -
+   this is what fixes the "stuck to the cursor" swap bug. It's just made
+   invisible here rather than unmounted. */
+.fitb-tile.dragging-away {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* the floating clone that follows the pointer while dragging */
+.fitb-drag-ghost {
+  position: fixed;
+  z-index: 2000;
+  padding: 6px 16px;
+  border: 1.5px solid #15803d;
+  border-radius: 8px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  pointer-events: none;
+  transform: rotate(-6deg) scale(1.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- submit / post-submit controls ---------- */
+
+.fitb-submit-btn {
+  align-self: center;
+  margin-top: auto;
+  padding: 12px 34px;
+  border: none;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.fitb-submit-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.fitb-post-submit-row {
+  align-self: center;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fitb-score {
+  font-weight: 700;
+  color: #1f2933;
+  font-size: 14px;
+}
+
+.fitb-reveal-btn {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1.5px solid #22c55e;
+  background: transparent;
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.fitb-reveal-btn:hover {
+  background: #eafaf0;
+}
+
+.fitb-finish-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.fitb-finish-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 760px) {
+  .fitb-body {
+    flex-direction: column;
+    height: auto;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .fitb-main-section {
+    height: auto;
+  }
+
+  .fitb-bank-section {
+    height: auto;
+    max-height: 220px;
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .fitb-overlay {
+    padding: 0;
+  }
+
+  .fitb-modal {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,165 @@
+.settings-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 30, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 24px;
+  animation: settingsOverlayFadeIn 0.18s ease-out;
+}
+
+@keyframes settingsOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.settings-modal {
+  width: 420px;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(15, 23, 30, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: settingsModalZoomIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes settingsModalZoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.settings-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #edf0f3;
+}
+
+.settings-modal-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.settings-modal-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #f2f5f7;
+  color: #52606d;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.settings-modal-close-btn:hover {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.settings-modal-body {
+  padding: 22px 20px 24px;
+}
+
+.settings-field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.settings-field-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.settings-field-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #16a34a;
+  font-variant-numeric: tabular-nums;
+}
+
+.settings-field-control-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settings-field-control-row input[type='range'] {
+  flex: 1;
+  accent-color: #22c55e;
+}
+
+.settings-preview-btn {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #22c55e;
+  color: #22c55e;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.settings-preview-btn:hover {
+  transform: scale(1.06);
+}
+
+.settings-field-hint {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #7b8794;
+  line-height: 1.5;
+}
+
+.settings-coming-soon {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.settings-coming-soon-label {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.settings-coming-soon-hint {
+  margin: 0;
+  font-size: 13px;
+  color: #7b8794;
+}
