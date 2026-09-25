@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { getGermanVoice } from '../utils/germanVoice';
 
 // Plays one chunk's audio. If the chunk has a real `audio_url`, it plays
 // that file. Otherwise (the prototype's default, since no recordings
@@ -7,14 +8,27 @@ import React, { useEffect, useRef, useState } from 'react';
 export default function AudioChunkPlayer({ chunk, onPlaybackEnd, autoPlay = true }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
+  const [voiceUnavailable, setVoiceUnavailable] = useState(false);
   const audioRef = useRef(null);
 
-  const speak = () => {
+  const speak = async () => {
     if (!chunk.audio_url) {
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(chunk.transcript);
       utterance.lang = 'de-DE';
       utterance.rate = 0.95;
+
+      // Without an explicit voice, the browser may default to a
+      // low-quality or non-German voice despite `lang` being set — pick a
+      // known-good German voice when one is installed.
+      const voice = await getGermanVoice();
+      if (voice) {
+        utterance.voice = voice;
+        setVoiceUnavailable(false);
+      } else {
+        setVoiceUnavailable(true);
+      }
+
       utterance.onstart = () => setIsPlaying(true);
       utterance.onend = () => {
         setIsPlaying(false);
@@ -60,6 +74,14 @@ export default function AudioChunkPlayer({ chunk, onPlaybackEnd, autoPlay = true
       {!chunk.audio_url && (
         <p className="audio-note">
           (Prototyp: German gesprochen per Browser-TTS statt einer echten Aufnahme.)
+        </p>
+      )}
+
+      {!chunk.audio_url && voiceUnavailable && (
+        <p className="audio-note audio-note-warning">
+          Auf diesem Gerät/Browser wurde keine deutsche Sprachstimme gefunden —
+          die Aussprache kann dadurch falsch klingen. Chrome oder Edge haben in
+          der Regel eine bessere deutsche Stimme installiert.
         </p>
       )}
     </div>
