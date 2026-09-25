@@ -1,0 +1,192 @@
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: #f6f5f2;
+  color: #23211e;
+}
+
+.app-shell {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+.segment-description {
+  color: #55524c;
+}
+
+.rules-list {
+  color: #55524c;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #b5442e;
+  color: #fff;
+}
+
+.btn-primary:disabled {
+  background: #d8bdb3;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #e9e5df;
+  color: #23211e;
+  margin-bottom: 8px;
+}
+
+.audio-chunk-player {
+  background: #fff;
+  border: 1px solid #e3ded6;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.audio-status {
+  font-size: 0.9rem;
+  color: #55524c;
+  margin-bottom: 8px;
+}
+
+.audio-note {
+  font-size: 0.8rem;
+  color: #8a8579;
+  margin-top: 8px;
+}
+
+.progress-indicator {
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #e3ded6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #b5442e;
+  transition: width 0.2s ease;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: #55524c;
+}
+
+.question-panel {
+  background: #fff;
+  border: 1px solid #e3ded6;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.question-block {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.question-block legend {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8a8579;
+  padding: 0;
+}
+
+.question-prompt {
+  font-weight: 500;
+  margin: 4px 0 10px;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text-answer {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cfc8bd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #8a8579;
+}
+
+.error-text {
+  color: #b5442e;
+}
+
+.results-screen .score-line {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.breakdown-list {
+  list-style: none;
+  padding: 0;
+}
+
+.breakdown-list li {
+  border-left: 4px solid #cfc8bd;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.breakdown-list li.correct {
+  border-left-color: #4b7f52;
+}
+
+.breakdown-list li.incorrect {
+  border-left-color: #b5442e;
+}
+
+.breakdown-transcript {
+  font-style: italic;
+  color: #55524c;
+  font-size: 0.9rem;
+}
+
+.breakdown-prompt {
+  margin: 4px 0;
+}
+
+.status-text {
+  text-align: center;
+  color: #55524c;
+}
