@@ -47,6 +47,14 @@ h1, h2 {
   cursor: not-allowed;
 }
 
+.btn-submit {
+  background: #2f8f4e;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #267a41;
+}
+
 .btn-secondary {
   background: #e9e5df;
   color: #23211e;
