@@ -308,6 +308,141 @@ const MODALVERBEN_CHUNKS = [
   },
 ];
 
+// --- Segment 3: Passiv — Vorgangspassiv & Zustandspassiv -----------------
+// Three matched pairs: the same underlying event shown once as
+// Vorgangspassiv (werden + Partizip II, the action in progress) and once
+// as Zustandspassiv (sein + Partizip II, the resulting state), back to
+// back, so the contrast itself is what's being taught.
+
+const PASSIV_CHUNKS = [
+  {
+    order_index: 1,
+    transcript: 'Die Tür wird geöffnet.',
+    time_concept_label: 'passiv-vorgang-tuer-oeffnen',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Passivform hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'Vorgangspassiv'],
+          ['b', 'Zustandspassiv'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die Lücke (Zustandspassiv): Die Tür ___ geöffnet.',
+        correct: 'ist',
+      },
+    ],
+  },
+  {
+    order_index: 2,
+    transcript: 'Die Tür ist geöffnet.',
+    time_concept_label: 'passiv-zustand-tuer-oeffnen',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Passivform hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'Zustandspassiv'],
+          ['b', 'Vorgangspassiv'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die Lücke (Vorgangspassiv): Die Tür ___ geöffnet.',
+        correct: 'wird',
+      },
+    ],
+  },
+  {
+    order_index: 3,
+    transcript: 'Das Haus wird gebaut.',
+    time_concept_label: 'passiv-vorgang-haus-bauen',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Passivform hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'Vorgangspassiv'],
+          ['b', 'Zustandspassiv'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die Lücke (Zustandspassiv): Das Haus ___ gebaut.',
+        correct: 'ist',
+      },
+    ],
+  },
+  {
+    order_index: 4,
+    transcript: 'Das Haus ist gebaut.',
+    time_concept_label: 'passiv-zustand-haus-bauen',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Passivform hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'Zustandspassiv'],
+          ['b', 'Vorgangspassiv'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die Lücke (Vorgangspassiv): Das Haus ___ gebaut.',
+        correct: 'wird',
+      },
+    ],
+  },
+  {
+    order_index: 5,
+    transcript: 'Das Fenster wird geschlossen.',
+    time_concept_label: 'passiv-vorgang-fenster-schliessen',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Passivform hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'Vorgangspassiv'],
+          ['b', 'Zustandspassiv'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die Lücke (Zustandspassiv): Das Fenster ___ geschlossen.',
+        correct: 'ist',
+      },
+    ],
+  },
+  {
+    order_index: 6,
+    transcript: 'Das Fenster ist geschlossen.',
+    time_concept_label: 'passiv-zustand-fenster-schliessen',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Passivform hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'Zustandspassiv'],
+          ['b', 'Vorgangspassiv'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die Lücke (Vorgangspassiv): Das Fenster ___ geschlossen.',
+        correct: 'wird',
+      },
+    ],
+  },
+];
+
 const SEGMENTS = [
   {
     slug: 'tense-overview-time-concept',
@@ -324,6 +459,183 @@ const SEGMENTS = [
       'How German modal verbs work in the present and in Präteritum, and how the same meaning can be expressed without a modal verb at all.',
     order_index: 2,
     chunks: MODALVERBEN_CHUNKS,
+  },
+  {
+    slug: 'passiv',
+    title: 'Passiv — Vorgangspassiv & Zustandspassiv',
+    description:
+      'The German passive voice split into two forms: Vorgangspassiv (an action in progress, with werden) and Zustandspassiv (the resulting state, with sein) — and how to tell them apart.',
+    order_index: 3,
+];
+
+// --- Segment 4: Nomen-Verb-Verbindungen -----------------------------------
+// Three matched pairs, same idea as Passiv: the fixed noun+verb phrase
+// (Funktionsverbgefüge) shown once, and its single-verb paraphrase shown
+// once, back to back — so recognising which is which, and producing the
+// counterpart, is the actual skill being tested (resolves the open
+// question in ROADMAP.md §6 about testing the paraphrase relationship).
+
+const NVV_CHUNKS = [
+  {
+    order_index: 1,
+    transcript: 'Der Chef trifft eine Entscheidung.',
+    time_concept_label: 'nvv-entscheidung-treffen-fixed',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Form hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'feste Nomen-Verb-Verbindung'],
+          ['b', 'einfaches Verb'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Welches einzelne Verb hat die gleiche Bedeutung? Der Chef ___.',
+        correct: 'entscheidet',
+      },
+    ],
+  },
+  {
+    order_index: 2,
+    transcript: 'Der Chef entscheidet.',
+    time_concept_label: 'nvv-entscheidung-treffen-verb',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Form hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'einfaches Verb'],
+          ['b', 'feste Nomen-Verb-Verbindung'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die feste Wendung: Der Chef trifft eine ___.',
+        correct: 'Entscheidung',
+      },
+    ],
+  },
+  {
+    order_index: 3,
+    transcript: 'Die Studentin stellt eine Frage.',
+    time_concept_label: 'nvv-frage-stellen-fixed',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Form hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'feste Nomen-Verb-Verbindung'],
+          ['b', 'einfaches Verb'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Welches einzelne Verb hat die gleiche Bedeutung? Die Studentin ___.',
+        correct: 'fragt',
+      },
+    ],
+  },
+  {
+    order_index: 4,
+    transcript: 'Die Studentin fragt.',
+    time_concept_label: 'nvv-frage-stellen-verb',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Form hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'einfaches Verb'],
+          ['b', 'feste Nomen-Verb-Verbindung'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die feste Wendung: Die Studentin stellt eine ___.',
+        correct: 'Frage',
+      },
+    ],
+  },
+  {
+    order_index: 5,
+    transcript: 'Der Lehrer übt Kritik an der Arbeit.',
+    time_concept_label: 'nvv-kritik-ueben-fixed',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Form hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'feste Nomen-Verb-Verbindung'],
+          ['b', 'einfaches Verb'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Welches einzelne Verb hat die gleiche Bedeutung? Der Lehrer ___ die Arbeit.',
+        correct: 'kritisiert',
+      },
+    ],
+  },
+  {
+    order_index: 6,
+    transcript: 'Der Lehrer kritisiert die Arbeit.',
+    time_concept_label: 'nvv-kritik-ueben-verb',
+    questions: [
+      {
+        type: 'recognition',
+        prompt: 'Welche Form hast du gehört?',
+        correct: 'a',
+        options: [
+          ['a', 'einfaches Verb'],
+          ['b', 'feste Nomen-Verb-Verbindung'],
+        ],
+      },
+      {
+        type: 'application',
+        prompt: 'Vervollständige die feste Wendung: Der Lehrer übt ___ an der Arbeit.',
+        correct: 'Kritik',
+      },
+    ],
+  },
+];
+
+const SEGMENTS = [
+  {
+    slug: 'tense-overview-time-concept',
+    title: 'Tense Overview & Time Concept',
+    description:
+      'How German situates events in time relative to each other, across Präsens, Perfekt, Präteritum, Plusquamperfekt, Futur I and Futur II.',
+    order_index: 1,
+    chunks: TENSE_OVERVIEW_CHUNKS,
+  },
+  {
+    slug: 'modalverben',
+    title: 'Modalverben — Present, Past & Alternatives',
+    description:
+      'How German modal verbs work in the present and in Präteritum, and how the same meaning can be expressed without a modal verb at all.',
+    order_index: 2,
+    chunks: MODALVERBEN_CHUNKS,
+  },
+  {
+    slug: 'passiv',
+    title: 'Passiv — Vorgangspassiv & Zustandspassiv',
+    description:
+      'The German passive voice split into two forms: Vorgangspassiv (an action in progress, with werden) and Zustandspassiv (the resulting state, with sein) — and how to tell them apart.',
+    order_index: 3,
+    chunks: PASSIV_CHUNKS,
+  },
+  {
+    slug: 'nomen-verb-verbindungen',
+    title: 'Nomen-Verb-Verbindungen',
+    description:
+      'Fixed noun+verb phrases (Funktionsverbgefüge) like "eine Entscheidung treffen", paired with their single-verb paraphrase, so the fixed pairing itself becomes the thing being learned.',
+    order_index: 4,
+    chunks: NVV_CHUNKS,
   },
 ];
 
