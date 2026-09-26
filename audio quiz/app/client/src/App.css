@@ -23,6 +23,29 @@ h1, h2 {
   color: #55524c;
 }
 
+.segment-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 16px 0;
+}
+
+.segment-picker label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8a8579;
+}
+
+.segment-picker select {
+  padding: 8px 10px;
+  border: 1px solid #cfc8bd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  color: #23211e;
+}
+
 .rules-list {
   color: #55524c;
   font-size: 0.95rem;
