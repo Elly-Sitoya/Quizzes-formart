@@ -57,7 +57,7 @@ export default function QuestionPanel({ questions, disabled, onSubmit }) {
         </fieldset>
       ))}
 
-      <button type="submit" className="btn btn-primary" disabled={disabled || !allAnswered}>
+      <button type="submit" className="btn btn-primary btn-submit" disabled={disabled || !allAnswered}>
         Antworten abschicken
       </button>
       {disabled && (
