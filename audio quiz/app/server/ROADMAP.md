@@ -41,9 +41,9 @@
 ## 4. Segment List — Build Order
 
 1. **Tense overview and time concept** — prototype built
-2. **Modalverben** — present, past, and alternatives — prototype built
-3. **Passiv** — Vorgangspassiv and Zustandspassiv — prototype built
-4. **Nomen-Verb-Verbindungen** — prototype built
+2. **Modalverben** — present, past, and alternatives
+3. **Passiv** — Vorgangspassiv and Zustandspassiv
+4. **Nomen-Verb-Verbindungen**
 5. **Adjective mastery**
 6. **Konjunktionen & Satzverbindungen**
 7. **Nominalisierung**
@@ -53,9 +53,9 @@
 | # | Segment | Status |
 |---|---|---|
 | 1 | Tense overview and time concept | Prototype built |
-| 2 | Modalverben | Prototype built |
-| 3 | Passiv | Prototype built |
-| 4 | Nomen-Verb-Verbindungen | Prototype built |
+| 2 | Modalverben | Not started |
+| 3 | Passiv | Not started |
+| 4 | Nomen-Verb-Verbindungen | Not started |
 | 5 | Adjective mastery | Not started |
 | 6 | Konjunktionen & Satzverbindungen | Not started |
 | 7 | Nominalisierung | Not started |
@@ -69,32 +69,6 @@ Built → Reviewed.)*
    current one?
 2. Can a submitted answer be **edited later**, once locked in?
 3. Is **Mode A vs. Mode B** a student-facing choice, or app-driven?
-4. ~~*(Segment 2 — Modalverben)* Do "alternatives" get their own dedicated
-   chunks?~~ **Resolved:** yes — alternatives (e.g. **haben zu + Infinitiv**,
-   **in der Lage sein zu**) get their own dedicated chunks, same weight as
-   present/past chunks, not woven into them.
-5. *(Segment 2 — Modalverben)* The prototype's 6 chunks cover **müssen**
-   (present, past, alternative) and **können** (present, alternative), plus
-   **wollen** (past only) — not all six modals get present/past/alternative
-   coverage. Is one or two illustrative modals per idea enough for this
-   segment, or do **sollen, dürfen** and **mögen/möchten** need their own
-   chunks too?
-6. *(Segment 3 — Passiv)* The prototype uses 3 matched pairs (Tür öffnen,
-   Haus bauen, Fenster schließen) — each shown once as Vorgangspassiv and
-   once as Zustandspassiv, in adjacent chunks. Is 3 verb pairs enough
-   coverage, and should a later pass add pairs with **modal + Passiv**
-   combinations (e.g. "muss geschlossen werden") or is that a separate
-   segment's concern?
-7. ~~*(Segment 4 — Nomen-Verb-Verbindungen)* Should a chunk also test the
-   single-verb paraphrase, or does that overload one chunk with two
-   skills?~~ **Resolved:** matched pairs, same pattern as Passiv — the
-   fixed phrase (e.g. **eine Entscheidung treffen**) and its single-verb
-   paraphrase (**entscheiden**) each get their own chunk, back to back.
-8. *(Segment 4 — Nomen-Verb-Verbindungen)* The prototype covers 3 phrases
-   (eine Entscheidung treffen, eine Frage stellen, Kritik üben) — a small
-   sample of a genuinely large, closed-but-long list of Funktionsverbgefüge.
-   Is 3 enough for the prototype, or does this segment need more coverage
-   than the others before it's considered done?
 
 ## 7. Related Files
 
