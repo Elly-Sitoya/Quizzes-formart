@@ -1,10 +1,36 @@
 import React from 'react';
 
-export default function SegmentIntro({ segment, onStart, loading, error }) {
+export default function SegmentIntro({
+  segment,
+  onStart,
+  loading,
+  error,
+  availableSegments,
+  selectedSlug,
+  onSelectSlug,
+}) {
   return (
     <div className="segment-intro">
       <h1>{segment?.title ?? 'Audio Quiz'}</h1>
       {segment?.description && <p className="segment-description">{segment.description}</p>}
+
+      {availableSegments && availableSegments.length > 1 && (
+        <div className="segment-picker">
+          <label htmlFor="segment-select">Segment auswählen</label>
+          <select
+            id="segment-select"
+            value={selectedSlug}
+            onChange={(e) => onSelectSlug(e.target.value)}
+            disabled={loading}
+          >
+            {availableSegments.map((s) => (
+              <option key={s.slug} value={s.slug}>
+                {s.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
       <ul className="rules-list">
         <li>Jeder Abschnitt (Chunk) wird vorgespielt und pausiert danach automatisch.</li>

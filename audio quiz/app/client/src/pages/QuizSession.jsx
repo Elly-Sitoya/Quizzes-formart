@@ -12,7 +12,12 @@ import {
   getResults,
 } from '../api/client.js';
 
-const SEGMENT_SLUG = 'tense-overview-time-concept';
+// Statically known while the app only ever shows one segment per session.
+// Once there's a "list all segments" endpoint, this can be fetched instead.
+const AVAILABLE_SEGMENTS = [
+  { slug: 'tense-overview-time-concept', label: 'Tense Overview & Time Concept' },
+  { slug: 'modalverben', label: 'Modalverben — Present, Past & Alternatives' },
+];
 
 // Orchestrates the whole session state machine:
 // intro -> loading -> in_progress (per chunk: play -> awaiting_answer -> submitted)
@@ -24,6 +29,7 @@ export default function QuizSession() {
   const [segment, setSegment] = useState(null);
   const [chunks, setChunks] = useState([]);
   const [sessionId, setSessionId] = useState(null);
+  const [selectedSlug, setSelectedSlug] = useState(AVAILABLE_SEGMENTS[0].slug);
 
   const [chunkIndex, setChunkIndex] = useState(0);
   const [canAnswer, setCanAnswer] = useState(false);
@@ -34,7 +40,7 @@ export default function QuizSession() {
     setPhase('loading');
     setError(null);
     try {
-      const { segment: seg, chunks: chks } = await getSegment(SEGMENT_SLUG);
+      const { segment: seg, chunks: chks } = await getSegment(selectedSlug);
       const session = await startSession(seg.id);
       setSegment(seg);
       setChunks(chks);
@@ -92,6 +98,9 @@ export default function QuizSession() {
         onStart={handleStart}
         loading={phase === 'loading'}
         error={error}
+        availableSegments={AVAILABLE_SEGMENTS}
+        selectedSlug={selectedSlug}
+        onSelectSlug={setSelectedSlug}
       />
     );
   }
